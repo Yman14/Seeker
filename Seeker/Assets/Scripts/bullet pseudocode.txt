@@ -1,0 +1,5 @@
+prefab bullets
+script
+instantiate
+if press key
+from current to target
