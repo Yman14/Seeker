@@ -208,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &293384596
 RectTransform:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -520,13 +520,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.43170452, y: -0.012530586, z: -0.33881602, w: 0.83586955}
+  m_LocalPosition: {x: 35.9, y: 12.2, z: 8.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 45.496, y: -26.566, z: -55.436}
 --- !u!1 &729198606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,6 +2002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a703a9be5975234caa7b973e721a3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathCanvas: {fileID: 293384595}
   HP: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

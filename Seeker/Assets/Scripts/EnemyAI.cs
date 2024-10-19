@@ -36,16 +36,19 @@ public class EnemyAI : MonoBehaviour
         {
             isProvoked = true;
         }
-        else if (distanceToTarget > chaseRange)
+        
+        if (distanceToTarget > chaseRange)
         {
             isProvoked = false;
+            navMeshAgent.SetDestination(transform.position);
+            GetComponent<Animator>().SetTrigger("idle");
         }
     }
 
     private void EngageTarget()
     {
         FaceTarget();
-        
+
         if(distanceToTarget > navMeshAgent.stoppingDistance)
         {
             ChaseTarget();

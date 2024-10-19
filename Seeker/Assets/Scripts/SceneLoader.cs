@@ -7,6 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     public void PlayAgainButton()
     {
+        Time.timeScale = 1f;    //resume the paused game
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
