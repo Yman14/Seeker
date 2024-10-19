@@ -18,25 +18,32 @@ public class EnemyAI : MonoBehaviour
         navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        distanceToTarget = Vector3.Distance(target.position, transform.position);
+        //calculate distace to target
+        ProcessAggro();
+    }
 
-        if(isProvoked)
+    private void ProcessAggro()
+    {
+        distanceToTarget = Vector3.Distance(target.position, transform.position);
+        if (isProvoked)
         {
             EngageTarget();
         }
-        else if(distanceToTarget <= chaseRange)
+        else if (distanceToTarget <= chaseRange)
         {
             isProvoked = true;
-            //navMeshAgent.SetDestination(target.position);
+        }
+        else if (distanceToTarget > chaseRange)
+        {
+            isProvoked = false;
         }
     }
 
     private void EngageTarget()
     {
-        if(distanceToTarget >= navMeshAgent.stoppingDistance)
+        if(distanceToTarget > navMeshAgent.stoppingDistance)
         {
             ChaseTarget();
         }
@@ -49,14 +56,19 @@ public class EnemyAI : MonoBehaviour
 
     void ChaseTarget()
     {
+        GetComponent<Animator>().SetTrigger("move");
+        GetComponent<Animator>().SetBool("attack", false);
         navMeshAgent.SetDestination(target.position);
     }
 
     void AttackTarget()
-    {
+    {   
+        GetComponent<Animator>().SetBool("attack", true);
         Debug.Log("Attacking Target.");
     }
 
+
+    //draw range of target
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
