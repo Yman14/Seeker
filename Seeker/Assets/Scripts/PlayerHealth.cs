@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] GameObject deathCanvas;
+    DeathHandler deathHandlerScript;
     [SerializeField] float HP = 100f;
 
+    void Start()
+    {
+        deathHandlerScript = GetComponent<DeathHandler>();
+
+        //lock and hide cursor after reset
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
     public void TakeDamage(float damage)
     {
         HP -= damage;
@@ -14,8 +22,7 @@ public class PlayerHealth : MonoBehaviour
         if(HP <= 0)
         {
             Debug.Log("Player Dead.");
-            deathCanvas.SetActive(true);
-            Time.timeScale = 0f;    //pause the game //might be a bad code, not sure
+            deathHandlerScript.HandleDeath();
 
         }
     }

@@ -59,7 +59,6 @@ public class Weapon : MonoBehaviour
     private void HitImpactVFX(RaycastHit hit)
     {
         GameObject hitEffect = Instantiate(HitVFXPrefab, hit.point, Quaternion.LookRotation(hit.normal));
-        Debug.Log("hitpoint: " + hit.point);
         Destroy(hitEffect, 2);
     }
 
