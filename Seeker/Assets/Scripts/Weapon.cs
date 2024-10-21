@@ -12,22 +12,37 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject HitVFXPrefab;
     [SerializeField] float range = 100f;
     [SerializeField] int weaponDamage = 40;
+    [SerializeField] float timeBetweenShot = 1f;
 
+    Ammo ammoSlot;
     Transform target;
     public Transform Target{    get { return target; }}
+    bool canShoot = true;
+
+    void Start()
+    {
+        ammoSlot = FindObjectOfType<Ammo>();
+    }
 
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") && canShoot)
         {
-            Shoot();
+            StartCoroutine(Shoot());
         }
     }
 
-    private void Shoot()
+    IEnumerator Shoot()
     {
-        PlayMuzzleFlash();
-        ProcessRaycast();
+        canShoot = false;
+        if(ammoSlot.GetCurrentAmmo() > 0)
+        {
+            PlayMuzzleFlash();
+            ProcessRaycast();
+            ammoSlot.ReduceAmmo();
+        }
+        yield return new WaitForSeconds(timeBetweenShot);
+        canShoot = true;
     }
 
     private void PlayMuzzleFlash()
