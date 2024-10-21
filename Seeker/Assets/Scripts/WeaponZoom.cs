@@ -2,16 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using StarterAssets;
+
 
 public class WeaponZoom : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera playerCamera;
+    [SerializeField] CinemachineVirtualCamera scope;
+    [Tooltip("player camera field of view")]
+
     [SerializeField] [Range(10, 100f)] float defaultFOV = 40f;
-    [SerializeField] [Range(10f, 30f)] float zoomIn = 20f;
+    [SerializeField] [Range(10f, 30f)] float zoomInFOV = 20f;
+    [SerializeField] [Range(0.1f, 5f)] float defaultSens = 1f;
+    [SerializeField] [Range(0.1f, 5f)] float zoomInSens = 0.5f;
+
+    bool zoomInToggle = false;
+    FirstPersonController sensitivity;
+    [Tooltip("player mouse sensitivity")]
 
     void Start()
     {
-        playerCamera.m_Lens.FieldOfView = defaultFOV;
+        sensitivity = GetComponent<FirstPersonController>();
+        scope.m_Lens.FieldOfView = defaultFOV;
+        sensitivity.RotationSpeed = defaultSens;
     }
 
     void Update()
@@ -23,12 +35,16 @@ public class WeaponZoom : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire2"))
         {
-            if(playerCamera.m_Lens.FieldOfView == defaultFOV)
+            if(zoomInToggle)
             {
-                playerCamera.m_Lens.FieldOfView = zoomIn;
+                scope.m_Lens.FieldOfView = defaultFOV;
+                sensitivity.RotationSpeed = defaultSens;
+                zoomInToggle = false;
             }
             else{
-                playerCamera.m_Lens.FieldOfView = defaultFOV;
+                scope.m_Lens.FieldOfView = zoomInFOV;
+                sensitivity.RotationSpeed = zoomInSens;
+                zoomInToggle = true;
             }
         }
     }
