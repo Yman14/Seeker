@@ -14,6 +14,9 @@ public class DeathHandler : MonoBehaviour
     {
         gameOverCanvas.SetActive(true);
 
+        //disbled weapon switching
+        FindObjectOfType<WeaponSwitch>().enabled = false;
+
         //show cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

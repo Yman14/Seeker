@@ -16,4 +16,12 @@ public class SceneLoader : MonoBehaviour
         Application.Quit();
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            PlayAgainButton();
+        }
+    }
+
 }

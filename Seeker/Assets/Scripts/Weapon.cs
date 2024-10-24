@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -19,6 +18,11 @@ public class Weapon : MonoBehaviour
     public Transform Target{    get { return target; }}
     bool canShoot = true;
 
+    void OnEnable()
+    {
+        canShoot = true; // Reset the shooting state when the object is re-enabled
+    }
+
     void Start()
     {
         ammoSlot = FindObjectOfType<Ammo>();
@@ -26,6 +30,7 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("can shoot bug: " + canShoot);
         if(Input.GetButtonDown("Fire1") && canShoot)
         {
             StartCoroutine(Shoot());
@@ -65,7 +70,7 @@ public class Weapon : MonoBehaviour
                 Debug.Log("Enemy Health: " + enemy.Health);
 
             }
-            target = hit.transform;
+            //target = hit.transform;
             //InstantiateBullet();
         }
         else { return; }

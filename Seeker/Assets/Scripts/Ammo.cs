@@ -7,6 +7,13 @@ public class Ammo : MonoBehaviour
 {
     [SerializeField] int amount = 10;
     [SerializeField] TMP_Text ammoTextCanvas;
+    [SerializeField] AmmoSlot[] ammoSlots;
+    [System.Serializable]
+    private class AmmoSlot
+    {
+        public AmmoType ammoType;
+        public int ammoAmount;
+    }
 
     void Update()
     {

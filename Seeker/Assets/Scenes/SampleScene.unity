@@ -2381,29 +2381,69 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 886405079004653124, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
-      propertyPath: m_Name
-      value: Pistol
-      objectReference: {fileID: 0}
     - target: {fileID: 3172325588306437259, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4765750738518588675, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
-      propertyPath: amount
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 4765750738518588675, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
       propertyPath: ammoTextCanvas
       value: 
       objectReference: {fileID: 552815913}
+    - target: {fileID: 4765750738518588675, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: ammoSlots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765750738518588675, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: ammoSlots.Array.data[0].ammoType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765750738518588675, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: ammoSlots.Array.data[1].ammoType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765750738518588675, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: ammoSlots.Array.data[2].ammoType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870669381255013511, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5581082295451924692, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 293384595}
-    - target: {fileID: 6738378507650261422, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
-      propertyPath: m_Lens.FieldOfView
-      value: 20
+    - target: {fileID: 6208840964039350901, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 5.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319415381669749930, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319415381669749930, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: ShapeModule.type
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319415381669749930, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: ShapeModule.radius.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319415381669749930, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 4.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319415381669749930, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319415381669749930, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319415381669749930, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7663275403208366320, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2444,10 +2484,6 @@ PrefabInstance:
     - target: {fileID: 7663275403208366320, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9178888838441952986, guid: fef0532a7d8da824b94008179b68c7fa, type: 3}
-      propertyPath: field of view
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
