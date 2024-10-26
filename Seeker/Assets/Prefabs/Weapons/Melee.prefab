@@ -190,6 +190,7 @@ MonoBehaviour:
   range: 5
   weaponDamage: 100
   timeBetweenShot: 0.5
+  ammoType: 2
 --- !u!1 &3760700423156202459
 GameObject:
   m_ObjectHideFlags: 0

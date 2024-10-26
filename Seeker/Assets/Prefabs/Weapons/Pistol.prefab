@@ -307,6 +307,7 @@ MonoBehaviour:
   range: 25
   weaponDamage: 20
   timeBetweenShot: 0.2
+  ammoType: 1
 --- !u!1 &3760700423156202455
 GameObject:
   m_ObjectHideFlags: 0

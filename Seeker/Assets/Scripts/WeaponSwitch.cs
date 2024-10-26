@@ -35,10 +35,6 @@ public class WeaponSwitch : MonoBehaviour
         {
             currentWeapon = 2;
         }
-        if(Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            currentWeapon = 3;
-        }
     }
     
     private void ProcessScrollWheel()
@@ -81,5 +77,10 @@ public class WeaponSwitch : MonoBehaviour
             }
             weaponIndex++;
         }
+    }
+
+    public int GetCurrentWeapon()
+    {
+        return currentWeapon;
     }
 }

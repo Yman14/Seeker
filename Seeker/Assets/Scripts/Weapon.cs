@@ -12,8 +12,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] float range = 100f;
     [SerializeField] int weaponDamage = 40;
     [SerializeField] float timeBetweenShot = 1f;
+    [SerializeField] AmmoType ammoType;
 
-    Ammo ammoSlot;
+    Ammo ammoSlotScript;
     Transform target;
     public Transform Target{    get { return target; }}
     bool canShoot = true;
@@ -25,7 +26,7 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
-        ammoSlot = FindObjectOfType<Ammo>();
+        ammoSlotScript = FindObjectOfType<Ammo>();
     }
 
     void Update()
@@ -40,11 +41,11 @@ public class Weapon : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
-        if(ammoSlot.GetCurrentAmmo() > 0)
+        if(ammoSlotScript.GetCurrentAmmo(ammoType) > 0)
         {
             PlayMuzzleFlash();
             ProcessRaycast();
-            ammoSlot.ReduceAmmo();
+            ammoSlotScript.ReduceAmmo(ammoType);
         }
         yield return new WaitForSeconds(timeBetweenShot);
         canShoot = true;

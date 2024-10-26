@@ -12,18 +12,18 @@ public class WeaponZoom : MonoBehaviour
 
     [SerializeField] [Range(10, 100f)] float defaultFOV = 40f;
     [SerializeField] [Range(10f, 30f)] float zoomInFOV = 20f;
-    [SerializeField] [Range(0.1f, 5f)] float defaultSens = 1f;
-    [SerializeField] [Range(0.1f, 5f)] float zoomInSens = 0.5f;
 
     bool zoomInToggle = false;
-    FirstPersonController sensitivity;
-    [Tooltip("player mouse sensitivity")]
+
+    void OnDisable()
+    {
+        scope.m_Lens.FieldOfView = defaultFOV;
+    }
+
 
     void Start()
     {
-        sensitivity = GetComponent<FirstPersonController>();
         scope.m_Lens.FieldOfView = defaultFOV;
-        sensitivity.RotationSpeed = defaultSens;
     }
 
     void Update()
@@ -38,12 +38,10 @@ public class WeaponZoom : MonoBehaviour
             if(zoomInToggle)
             {
                 scope.m_Lens.FieldOfView = defaultFOV;
-                sensitivity.RotationSpeed = defaultSens;
                 zoomInToggle = false;
             }
             else{
                 scope.m_Lens.FieldOfView = zoomInFOV;
-                sensitivity.RotationSpeed = zoomInSens;
                 zoomInToggle = true;
             }
         }
