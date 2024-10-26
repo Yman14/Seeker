@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +8,7 @@ public class EnemyAI : MonoBehaviour
 
     NavMeshAgent navMeshAgent;
     PlayerHealth target;
+    EnemyHealth health;
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;
 
@@ -19,12 +17,20 @@ public class EnemyAI : MonoBehaviour
     {
         navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         target = FindObjectOfType<PlayerHealth>();
+        health = GetComponent<EnemyHealth>();
     }
 
     void Update()
     {
         //calculate distace to target
         ProcessAggro();
+
+        if(health.IsDead())
+        {
+            enabled = false;
+            navMeshAgent.enabled = false;
+            health.enabled = false;
+        }
     }
 
     private void ProcessAggro()
